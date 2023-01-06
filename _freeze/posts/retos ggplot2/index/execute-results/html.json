@@ -1,0 +1,16 @@
+{
+  "hash": "41df145b1f2a040c592f568e7448bf83",
+  "result": {
+    "markdown": "---\ntitle: \"Retos de graficación con ggplot2\"\nauthor: \"Irwing S. Saldaña\"\ndate: \"2022-03-08\"\ncategories: [ggplot2, dataviz, R]\nimage: \"img/portada.png\"\n---\n\n::: {.cell}\n\n:::\n\n\n# 9. Visualización de cantidades y proporciones\n\n## 9.1. Reto gráfico de barras laterales:\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n## 9.2. Reto gráfico de barras laterales:\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n# 10. Visualización de histogramas\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n# 11. Visualización de distribuciones en simultáneo con funciones de densidad\n\n## 11.1. Con funciones de densidad clásicas\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-5-1.png){width=768}\n:::\n:::\n\n\n## 11.2. Con gghighlight para resaltar las densidades\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-6-1.png){width=768}\n:::\n:::\n\n\n## 11.2. Con ggridges para mostrarlas en paralelo\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-7-1.png){width=672}\n:::\n:::\n\n\n# 12. Visualización variables numéricas con heatmaps\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-8-1.png){width=672}\n:::\n:::\n\n\n# 13. Visualización de proporciones con Treemaps\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-9-1.png){width=768}\n:::\n:::\n\n\n# 14. Visualización de asociaciones\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-10-1.png){width=672}\n:::\n:::\n\n\n# 15. Visualización de series temporales\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-12-1.png){width=672}\n:::\n:::\n\n\n# 16. Cambiando el tipo de letra de los gráficos\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-13-1.png){width=672}\n:::\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-13-2.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

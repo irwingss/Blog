@@ -71,25 +71,36 @@ p <- gapminder %>%
   scale_x_log10()
 p
 
+```
+
+```{r}
 # Transición por variable year
 p + transition_time(year) +
   labs(title = "Year: {frame_time}")
+```
 
+```{r}
 # Transición por variable year y con faceta por continent
 p + facet_wrap(~continent) +
   transition_time(year) +
   labs(title = "Year: {frame_time}")
+```
 
+```{r}
 # Transición por variable year y seguimiento activo de los datos
 p + transition_time(year) +
   labs(title = "Year: {frame_time}") +
   view_follow(fixed_y = TRUE)
+```
 
+```{r}
 # Transición por variable year y movimiento con sombras móviles
 p + transition_time(year) +
   labs(title = "Year: {frame_time}") +
   shadow_wake(wake_length = 0.1, alpha = FALSE)
+```
 
+```{r}
 # Transición por variable year y movimiento con sombras fijas
 p + transition_time(year) +
   labs(title = "Year: {frame_time}") +
@@ -111,15 +122,22 @@ Z <- airquality %>%
   theme(legend.position = "top")
 Z
 
+```
+
+```{r}
 # Transición de las líneas con revelado en base al eje x
 Z + transition_reveal(Day)
+```
 
+```{r}
 # Transición de las líneas guiadas por punto, 
 # con revelado en base al eje x
 Z + 
   geom_point() +
   transition_reveal(Day)
+```
 
+```{r}
 # Transición de las líneas y punto, 
 # con revelado en base al eje x
 Z + 
