@@ -3,7 +3,11 @@
     "listing": "/index.html",
     "items": [
       "/posts/gganimate/index.html",
-      "/posts/retos ggplot2/index.html"
+      "/posts/retos ggplot2/index.html",
+      "/posts/mensaje-oculto-feliz-año/index.html",
+      "/posts/arbol-navidad-3d/index.html",
+      "/posts/chicuadrado/index.html",
+      "/posts/oddsplotly-odds-ratio-plots/index.html"
     ]
   }
 ]

@@ -8,7 +8,7 @@ website:
   #   style: "docked"
   #   search: true
   navbar:
-    # logo: "img/logo.png"
+    logo: "img/avatar.png"
     background: "#4b00ff"
     search: true
     pinned: true
@@ -19,7 +19,7 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/irwingss/
-      - icon: browser-edge
+      - icon: person-plus-fill
         href: https://masterx.org
 format:
   html:

@@ -4,14 +4,98 @@
     "href": "about.html",
     "title": "Sobre mi",
     "section": "",
-    "text": "About this blog"
+    "text": "Hola, mi nombre es Irwing S. Saldaña."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R Latinoamérica Blog",
     "section": "",
-    "text": "Gráficos animados con gganimate\n\n\n\nggplot2\n\n\ndataviz\n\n\nR\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nMar 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetos de graficación con ggplot2\n\n\n\nggplot2\n\n\ndataviz\n\n\nR\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nMar 8, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Gráficos animados con gganimate\n\n\n\nggplot2\n\n\ndataviz\n\n\nR\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nMar 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetos de graficación con ggplot2\n\n\n\nggplot2\n\n\ndataviz\n\n\nR\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nMar 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMensaje Oculto Año Nuevo 2022\n\n\n\nR\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nDec 31, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nÁrbol de Navidad en 3D con R\n\n\n\nplotly\n\n\ndataviz\n\n\nR\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nDec 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTest de Independencia de Chi cuadrado usando R\n\n\n\ndataviz\n\n\nR\n\n\nEstadística\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nJul 22, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráficos de Odds Ratio con OddsPlotty\n\n\n\nggplot2\n\n\ndataviz\n\n\nR\n\n\nEstadística\n\n\n\n\n\n\n\nIrwing S. Saldaña\n\n\nJul 21, 2021\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/arbol-navidad-3d/index.html",
+    "href": "posts/arbol-navidad-3d/index.html",
+    "title": "Árbol de Navidad en 3D con R",
+    "section": "",
+    "text": "La Navidad llegó a nuestros tutoriales. Aquí te mostraré un código reproducible para producir un arbolito de navidad en 3D usando plotly, para que sorprendas a tus colegas esta noche buena."
+  },
+  {
+    "objectID": "posts/arbol-navidad-3d/index.html#librerías",
+    "href": "posts/arbol-navidad-3d/index.html#librerías",
+    "title": "Árbol de Navidad en 3D con R",
+    "section": "Librerías",
+    "text": "Librerías\n\n# Instalar\ninstall.packages(\"tidyverse\")\ninstall.packages(\"plotly\")\n\n\n# Activar\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0      ✔ purrr   0.3.5 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.3      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nlibrary(plotly)\n\n\nAttaching package: 'plotly'\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\nThe following object is masked from 'package:stats':\n\n    filter\n\nThe following object is masked from 'package:graphics':\n\n    layout"
+  },
+  {
+    "objectID": "posts/arbol-navidad-3d/index.html#bases-de-datos",
+    "href": "posts/arbol-navidad-3d/index.html#bases-de-datos",
+    "title": "Árbol de Navidad en 3D con R",
+    "section": "Bases de datos",
+    "text": "Bases de datos\n\ndatos_arbol <- data.frame(index = 1:300) %>%\n  mutate(z=seq(1,300,1),\n         x=cos(z/5)*index-1,\n         y=sin(index/5)*index-1,\n         grupo=rep(\"arbol\",300)) %>% \n  arrange(index)\n\ndatos_adornos1 <- data.frame(index = 1:30) %>%\n  mutate(z=seq(1,300,10),\n         x=cos(z/5+6)*(index+z+55),\n         y=sin(z/5+6)*(index+z+55),\n         grupo=rep(\"adorno\",30))\n\ndatos_adornos2 <- data.frame(index = 1:30) %>%\n  mutate(z=seq(1,300,10),\n         x=cos(z/5+20)*(index+z+10),\n         y=sin(z/5+20)*(index+z+10),\n         grupo=rep(\"adorno\",30))\n\ndatos_adornos3 <- data.frame(index = 1:30) %>%\n  mutate(z=seq(1,300,10),\n         x=cos(z/5+80)*(index+z+10),\n         y=sin(z/5+80)*(index+z+10),\n         grupo=rep(\"adorno\",30))\n\nestrella <- data.frame(index=300, x=-0.0199334,\n                       y=-0.8013307, z=300, grupo=\"estrella\")"
+  },
+  {
+    "objectID": "posts/arbol-navidad-3d/index.html#gráfico-3d",
+    "href": "posts/arbol-navidad-3d/index.html#gráfico-3d",
+    "title": "Árbol de Navidad en 3D con R",
+    "section": "Gráfico 3D",
+    "text": "Gráfico 3D\n\nplot_ly(showlegend=FALSE) %>%\n  add_markers(data = datos_arbol, x=~x, y=~y, z=~rev(index),\n              marker = list(color = 'darkgreen', symbol = 'circle')) %>% \n  add_markers(data = datos_adornos1, x=~x, y=~y, z=~rev(z),\n              marker = list(color = '#ed0057', symbol = 'circle')) %>%\n  add_markers(data = datos_adornos2, x=~x, y=~y, z=~rev(z),\n              marker = list(color = '#ed8200', symbol = 'circle')) %>%\n  add_markers(data = datos_adornos3, x=~x, y=~y, z=~rev(z),\n              marker = list(color = '#4ad2ff', symbol = 'circle')) %>%\n  add_text(data = estrella, x=~x, y=~y, z=~z-10, text = '⭐',\n           textfont = list(color=\"gold\", size=30)) %>% \n  layout(scene = list(aspectmode = \"manual\", aspectratio = list(x=1, y=1, z=1.2),\n                      xaxis = list(range=c(-500, 500)),\n                      yaxis = list(range=c(-500, 500)))) \n\n\n\n\n\n\nEl gráfico exportado en html usando Windows genera que la estrella se convierta en código ascii. Lamentablemente no se pueden usar los símbolos de plotly en R. Con python hay una gama amplia de puntos a proyectar.\nPara más información visita:\n\nInstituto de Ciencias Antonio Brack [website]\nFan page [Facebook]\nComunidad RLatam [Facebook]"
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html",
+    "href": "posts/chicuadrado/index.html",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "",
+    "text": "La prueba de chi cuadrado es una prueba estadística sencilla que puede ser usada cuando se tienen datos de recuento de ocurrencias de categorías. El análisis puede ser definido como una:\nEn R, la función nativa básica para el cálculo de esta prueba es:"
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#video-explicativo",
+    "href": "posts/chicuadrado/index.html#video-explicativo",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Video explicativo",
+    "text": "Video explicativo\n\n  \n\n\n\nLibrarías de Trabajo\nEl siguiente código sirve para instalar las librerías a usar:\n\ninstall.packages(\"tidyverse\")\ninstall.packages(\"corrplot\")\ninstall.packages(\"vcd\")\ninstall.packages(\"DescTools\")\ninstall.packages(\"CGPfunctions\")\n\nAhora, activa las librerías:\n\nlibrary(tidyverse)\nlibrary(corrplot)\nlibrary(vcd)\nlibrary(DescTools)\nlibrary(CGPfunctions)"
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#tablas-de-ejemplo",
+    "href": "posts/chicuadrado/index.html#tablas-de-ejemplo",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Tablas de ejemplo",
+    "text": "Tablas de ejemplo\nTrabajaremos con dos tipos de tablas para realizar los ejemplos:\n\nTabla de contingencia de dos factores.\n\n\n# Tabla de contingencia de dos factores. \n# Nivel (de 0 al 3) vs Grado (de 1 al 5).\nurl1 <- \"https://raw.githubusercontent.com/irwingss/ArchivosCuestionarios/main/Matriz%20Grados.csv\"\ngrados <- read.csv(url1)\n\n# Visualizar\ngrados\n\n  Grado1 Grado2 Grado3 Grado4 Grado5\n1   2900    392    932   1812   2854\n2    522    421    574    917   1247\n3   5678   8126   1171   1478   2040\n4   3719   2975   2811   1704   2244\n\n\n\nTabla larga con los valores de ocurrencia las categorías.\n\n\n# Tabla larga con los valores de ocurrencia las categorías\nurl2 <- \"https://raw.githubusercontent.com/irwingss/ArchivosCuestionarios/main/tabla_larga_chi_cuadrado.csv\"\ndataMejora <- read.csv(url2)\n\n# Visualizar primeras 20 filas\nhead(dataMejora,20)\n\n     treatment  improvement\n1      treated     improved\n2      treated     improved\n3  not-treated     improved\n4      treated     improved\n5      treated not-improved\n6      treated not-improved\n7  not-treated not-improved\n8      treated not-improved\n9  not-treated     improved\n10     treated     improved\n11 not-treated     improved\n12 not-treated not-improved\n13 not-treated not-improved\n14 not-treated not-improved\n15 not-treated     improved\n16 not-treated     improved\n17     treated     improved\n18     treated     improved\n19 not-treated not-improved\n20 not-treated not-improved\n\n\n\nComo dato adicional, si deseas transformar una matriz de contingencia a tabla larga (e.g., convirtamos grados en tabla larga), puedes usar el siguiente código:\n\n\n# Si deseas reutilizar este código, solo cambia las etiquetas: \n# grados y categoría por el nombre de las dos factores de tu interés\ngrados%>%\n  as.data.frame() %>% \n  rownames_to_column() %>%            \n  gather(Grados, valores, -rowname) %>% \n  rowwise() %>%                       \n  mutate(valores = list(1:valores)) %>%  \n  unnest(valores) %>%                   \n  select(-valores) %>% \n  rename(Nivel = rowname) -> gradosLarga\n\n# Visualizar el tibble\nView(gradosLarga)"
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#corrección-de-yates",
+    "href": "posts/chicuadrado/index.html#corrección-de-yates",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Corrección de Yates",
+    "text": "Corrección de Yates\nEs buena práctica realizar la prueba de Chi cuadrado sin corrección, observar los valores esperados y detectar si alguno de ellos es menor a 5. Si eso ocurre, se debe aplicar la corrección de Yates para corregir el cálculo del p-valor.\n\n# Para ver los valores esperados se tiene que\n#  guardar la prueba como un objeto en el ambiente\nresGrados <- chisq.test(grados, correct = FALSE)\nresMejora <- with(dataMejora, chisq.test(treatment, improvement, correct = FALSE))\n\n# Luego, se inspecciona el objeto con $expected\nresGrados$expected\n\n       Grado1   Grado2    Grado3    Grado4    Grado5\n[1,] 2559.941 2379.214 1095.9481 1180.4207 1674.4760\n[2,] 1059.971  985.139  453.7891  488.7659  693.3348\n[3,] 5325.196 4949.246 2279.7939 2455.5141 3483.2492\n[4,] 3873.891 3600.401 1658.4690 1786.2992 2533.9400\n\n\n\nresMejora$expected\n\n             improvement\ntreatment     improved not-improved\n  not-treated 31.95238     23.04762\n  treated     29.04762     20.95238\n\n\n\n# Incluso convertir esto a una prueba lógica\n# TRUE significa que el valor es mayor de 5\nresGrados$expected > 5\n\n     Grado1 Grado2 Grado3 Grado4 Grado5\n[1,]   TRUE   TRUE   TRUE   TRUE   TRUE\n[2,]   TRUE   TRUE   TRUE   TRUE   TRUE\n[3,]   TRUE   TRUE   TRUE   TRUE   TRUE\n[4,]   TRUE   TRUE   TRUE   TRUE   TRUE\n\n\n\nresMejora$expected > 5\n\n             improvement\ntreatment     improved not-improved\n  not-treated     TRUE         TRUE\n  treated         TRUE         TRUE\n\n\nEn ambos casos presentados no es necesario realizar la corrección de Yates."
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#categorías-que-más-contribuyen-al-score-de-la-prueba",
+    "href": "posts/chicuadrado/index.html#categorías-que-más-contribuyen-al-score-de-la-prueba",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Categorías que más contribuyen al score de la prueba",
+    "text": "Categorías que más contribuyen al score de la prueba\nSe puede conocer cuál es el aporte al score de Chi Cuadrado de cada categoría en las dos variables contrastadas visualizando los residuales (diferencia entre el valor esperado y el observado) en cada casilla.\n\n# Resultados textuales\nround(resGrados$residuals, 3)\n\n      Grado1  Grado2  Grado3  Grado4  Grado5\n[1,]   6.721 -40.741  -4.952  18.383  28.825\n[2,] -16.524 -17.974   5.643  19.370  21.027\n[3,]   4.835  45.156 -23.222 -19.727 -24.454\n[4,]  -2.489 -10.423  28.301  -1.947  -5.760\n\n\n\n# Gráfica de contribución\ncorrplot::corrplot(resGrados$residuals, is.cor = FALSE, \n         method = \"color\", addgrid.col=F,\n         tl.col = \"black\")"
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#gráficos-de-mosaico",
+    "href": "posts/chicuadrado/index.html#gráficos-de-mosaico",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Gráficos de Mosaico",
+    "text": "Gráficos de Mosaico\n\n# Gráfico de mosaico simple\nvcd::mosaic(~ Nivel, data=gradosLarga)\n\n\n\nvcd::mosaic(~ Grados, data=gradosLarga)\n\n\n\n\n\n# Gráfico de mosaico para ambas variables\nvcd::mosaic(Grados~ Nivel, data=gradosLarga)\n\n\n\nvcd::doubledecker(Grados~Nivel, data=gradosLarga)\n\n\n\n\n\n# Gráfico de mosaico para ambas variables sombreado por su nivel de aporte\nvcd::mosaic(~ Nivel  + Grados,\n            direction = c(\"v\", \"h\"),\n            data = gradosLarga,\n            shade = TRUE, \n            spacing = vcd::spacing_equal(sp = unit(0.3, \"lines\")))"
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#nivel-de-asociación",
+    "href": "posts/chicuadrado/index.html#nivel-de-asociación",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Nivel de asociación",
+    "text": "Nivel de asociación\nUna vez que determinamos que existe dependencia entre las dos variables es posible que queramos conocer el nivel de dicha dependencia o asociación. Para este fin recurriremos a el coeficiente de contingencia o a índices como la V de Cramer. En particular, se recomienda el uso del coeficiente de contingencia para tablas más grandes que 5x5, mientras que para tablas pequeñas la V de Cramer es el indicador de asociación más popular. En R hay varias funciones que entregan estos resultados, aquí revisaremos dos de ellas.\n\n# Para matrices de contingencia\nvcd::assocstats(as.matrix(grados))\n\n                    X^2 df P(> X^2)\nLikelihood Ratio 9401.3 12        0\nPearson          8885.1 12        0\n\nPhi-Coefficient   : NA \nContingency Coeff.: 0.408 \nCramer's V        : 0.258 \n\n\n\nDescTools::Assocs(as.matrix(grados))\n\n\n# Para tablas largas, esta se debe convertir a \n# matriz de contingencia con la funcion table()\nvcd::assocstats(table(dataMejora))\n\n                    X^2 df P(> X^2)\nLikelihood Ratio 5.6275  1 0.017681\nPearson          5.5569  1 0.018408\n\nPhi-Coefficient   : 0.23 \nContingency Coeff.: 0.224 \nCramer's V        : 0.23 \n\n\n\nDescTools::Assocs(table(dataMejora))\n\n                       estimate  lwr.ci  upr.ci\nContingency Coeff.       0.2242       -       -\nCramer V                 0.2301  0.0324  0.4213\nKendall Tau-b           -0.2301 -0.4152 -0.0449\nGoodman Kruskal Gamma   -0.4448 -0.7672 -0.1225\nStuart Tau-c            -0.2268 -0.4095 -0.0440\nSomers D C|R            -0.2273 -0.4104 -0.0441\nSomers D R|C            -0.2329 -0.4208 -0.0449\nPearson Correlation     -0.2301 -0.4039 -0.0402\nSpearman Correlation    -0.2301 -0.4039 -0.0402\nLambda C|R               0.0682  0.0000  0.3871\nLambda R|C               0.1800  0.0000  0.4572\nLambda sym               0.1277  0.0000  0.3861\nUncertainty Coeff. C|R   0.0394 -0.0246  0.1035\nUncertainty Coeff. R|C   0.0387 -0.0243  0.1017\nUncertainty Coeff. sym   0.0391 -0.0244  0.1026\nMutual Information       0.0387       -       -\n\n\nDado el tamaño de las matrices de contingencia, tomaremos como valor de interés a la V de Cramer. El valor va de 0, asociación nula, a 1, máxima dependencia. Para el estudio de niveles vs grados, se obtiene v = 0.25, por lo que podemos concluir que la asociación entre las variables es baja. Lo mismo ocurre para el estudio de la asociación entre el tratamiento (treatment) y la mejora (improvement) con v = 0.23."
+  },
+  {
+    "objectID": "posts/chicuadrado/index.html#gráficos-de-recuentos",
+    "href": "posts/chicuadrado/index.html#gráficos-de-recuentos",
+    "title": "Test de Independencia de Chi cuadrado usando R",
+    "section": "Gráficos de recuentos",
+    "text": "Gráficos de recuentos\nLa librería CGPfunctions provee una forma muy sencilla de graficar los conteos usando una tabla larga de datos con ambas variables categóricas en ella.\n\n# Gráfico para el estudio de Grados vs Nivel\nCGPfunctions::PlotXTabs(gradosLarga, Grados, Nivel)\n\nPlotted dataset gradosLarga variables Grados by Nivel\n\n\n\n\n\n\nCGPfunctions::PlotXTabs(gradosLarga, Nivel, Grados)\n\nPlotted dataset gradosLarga variables Nivel by Grados\n\n\n\n\n\n\n# Gráfico para el estudio de treatment vs improvement\nCGPfunctions::PlotXTabs(dataMejora, treatment, improvement)\n\nPlotted dataset dataMejora variables treatment by improvement\n\n\n\n\n\nPuedes cambiar el argumento plottype = para cambiar rápidamente la forma del gráfico:\n\n# Barras apiladas\nCGPfunctions::PlotXTabs(gradosLarga, Grados, Nivel, plottype=\"stack\")\n\nPlotted dataset gradosLarga variables Grados by Nivel\n\n\n\n\n\n\n# Barras porcentuales\nCGPfunctions::PlotXTabs(gradosLarga, Grados, Nivel, plottype=\"percent\")\n\nPlotted dataset gradosLarga variables Grados by Nivel"
   },
   {
     "objectID": "posts/gganimate/index.html",
@@ -40,6 +124,90 @@
     "title": "Gráficos animados con gganimate",
     "section": "1.3. Exportando GIFs animados en alta calidad",
     "text": "1.3. Exportando GIFs animados en alta calidad\nSe recomienda ir probando la resolución (argumento res) de animate(). Valores superiores a 150 píxeles por pulgada suelen demorar demasiado.\n\n# Se debe guardar el gráfico animado final en un objeto\nFinal <- Z + transition_reveal(Day)\n\n# Generemos la animación\nanimate(Final, renderer=magick_renderer(),\n        width = 20, height = 20, units=\"cm\", res=150)\n\n# Exportemos la animación activa en el Visualizador (Panel Viewer)\nanim_save(\"mi animacion lines.gif\")"
+  },
+  {
+    "objectID": "posts/mensaje-oculto-feliz-año/index.html",
+    "href": "posts/mensaje-oculto-feliz-año/index.html",
+    "title": "Mensaje Oculto Año Nuevo 2022",
+    "section": "",
+    "text": "Sabemos que la pandemia del Covid-19 nos tiene ya dos años celebrando a la distancia, estando más lejos de lo que quisiéramos de todos los que amamos. Este 2022, tenemos un mensaje oculto en código de R. Solo queremos que sepas que esto nos sale del corazón, por que nuestros alumnos, tú, eres realmente importante en este mundo. ¿Quieres saber cuál es el mensaje? Comencemos con el tutorial."
+  },
+  {
+    "objectID": "posts/mensaje-oculto-feliz-año/index.html#librerías",
+    "href": "posts/mensaje-oculto-feliz-año/index.html#librerías",
+    "title": "Mensaje Oculto Año Nuevo 2022",
+    "section": "Librerías",
+    "text": "Librerías\nDebemos instalar esta librería para trabajar con la conversión de números a carateres de texto. Si ya la tienes instalada, obvia este paso.\n\n# Instalar\ninstall.packages(\"DescTools\")"
+  },
+  {
+    "objectID": "posts/mensaje-oculto-feliz-año/index.html#nuestro-mensaje-para-ti",
+    "href": "posts/mensaje-oculto-feliz-año/index.html#nuestro-mensaje-para-ti",
+    "title": "Mensaje Oculto Año Nuevo 2022",
+    "section": "Nuestro mensaje para ti",
+    "text": "Nuestro mensaje para ti\n\ncharToRaw('LA FAMILIA DEL INSTITUTO DE CIENCIAS ANTONIO BRACK DESEA QUE ESTE AÑO NUEVO TE COLME DE MUCHA FELICIDAD') |>\n  as.numeric() |>\n  c(-4998)|>\n  sum() |>\n  paste(DescTools::AscToChar(c(83, 69, 82, 193, 32, 69, 76, 32, 77, 69, 74, 79, \n                               82, 32, 65, 209, 79, 32, 68, 69, 32, 84, 79, 68, \n                               79, 83, 46, 32, 77, 65, 78, 84, 69, 78, 84, 69, 32, \n                               70, 73, 82, 77, 69, 32, 69, 78, 32, 84, 85, 83, 32, \n                               77, 69, 84, 65, 83, 32, 89, 32, 65, 77, 65, 32, 65, \n                               218, 78, 32, 77, 193, 83, 32, 65, 32, 84, 85, 83, \n                               32, 83, 69, 82, 69, 83, 32, 81, 85, 69, 82, 73, 68, \n                               79, 83, 44, 32, 76, 79, 83, 32, 81, 85, 69, 32, 69, \n                               83, 84, 193, 78, 32, 89, 32, 76, 79, 83, 32, 81, \n                               85, 69, 32, 84, 69, 32, 67, 85, 73, 68, 65, 78, 32, \n                               68, 69, 83, 68, 69, 32, 76, 69, 74, 79, 83, 46, 32, \n                               84, 69, 32, 68, 69, 83, 69, 65, 77, 79, 83, 32, 76, \n                               79, 32, 77, 69, 74, 79, 82, 32, 83, 73, 69, 77, 80, \n                               82, 69, 46, 32, 71, 82, 65, 67, 73, 65, 83, 32, 80, \n                               79, 82, 32, 80, 69, 82, 84, 69, 78, 69, 67, 69, 82, \n                               32, 65, 32, 78, 85, 69, 83, 84, 82, 65, 32, 70, 65, \n                               77, 73, 76, 73, 65, 46)))\n\n #### Importante: - Asegúrate de tener la versión de RStudio adecuada para usar pipe nativo |>. Si no te funciona por no tener RStudio actualizado, usa el pipe de tidyverse. Activa primero con library(tidyverse) y luego usa el pipe %>%.\nEscríbe en nuestro post de Facebook si descubriste el mensaje, y déjanos tus deseos para todos este 2022."
+  },
+  {
+    "objectID": "posts/mensaje-oculto-feliz-año/index.html#crea-tu-propio-mensaje",
+    "href": "posts/mensaje-oculto-feliz-año/index.html#crea-tu-propio-mensaje",
+    "title": "Mensaje Oculto Año Nuevo 2022",
+    "section": "Crea tu propio mensaje",
+    "text": "Crea tu propio mensaje\nEs tu turno. Para codificar un mensaje en vectores numéricos en R, puedes hacer la conversión de la cadena de texto usado:\n\n# Convertir \"Mi mensaje misterioso\" a vector numérico\nmensajeCodificado <- DescTools::CharToAsc(\"Mi mensaje misterioso\")\nprint(mensajeCodificado)\n\n [1]  77 105  32 109 101 110 115  97 106 101  32 109 105 115 116 101 114 105 111\n[20] 115 111\n\n# Ahora convierte el mensaje codificado a texto\nDescTools::AscToChar(mensajeCodificado)\n\n[1] \"Mi mensaje misterioso\""
+  },
+  {
+    "objectID": "posts/mensaje-oculto-feliz-año/index.html#información-de-la-sesión",
+    "href": "posts/mensaje-oculto-feliz-año/index.html#información-de-la-sesión",
+    "title": "Mensaje Oculto Año Nuevo 2022",
+    "section": "Información de la Sesión",
+    "text": "Información de la Sesión\n\nsessionInfo()\n\nR version 4.2.2 (2022-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64 (64-bit)\nRunning under: Windows 10 x64 (build 22621)\n\nMatrix products: default\n\nlocale:\n[1] LC_COLLATE=Spanish_Peru.utf8  LC_CTYPE=Spanish_Peru.utf8   \n[3] LC_MONETARY=Spanish_Peru.utf8 LC_NUMERIC=C                 \n[5] LC_TIME=Spanish_Peru.utf8    \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] Rcpp_1.0.9        rstudioapi_0.14   knitr_1.41        magrittr_2.0.3   \n [5] MASS_7.3-58.1     lattice_0.20-45   R6_2.5.1          rlang_1.0.6      \n [9] fastmap_1.1.0     httr_1.4.4        stringr_1.4.1     tools_4.2.2      \n[13] grid_4.2.2        rootSolve_1.8.2.3 data.table_1.14.6 xfun_0.34        \n[17] cli_3.4.1         e1071_1.7-12      htmltools_0.5.3   DescTools_0.99.47\n[21] class_7.3-20      readxl_1.4.1      yaml_2.3.6        digest_0.6.30    \n[25] Matrix_1.5-1      htmlwidgets_1.5.4 evaluate_0.18     rmarkdown_2.18.1 \n[29] proxy_0.4-27      stringi_1.7.8     cellranger_1.1.0  compiler_4.2.2   \n[33] Exact_3.2         boot_1.3-28       gld_2.6.6         expm_0.999-6     \n[37] lmom_2.9          jsonlite_1.8.3    mvtnorm_1.1-3"
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "",
+    "text": "En este tutorial revisaremos el uso de la nueva librería OddsPlotty para la generación de gráficos de Odds Ratio."
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html#video-explicativo",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html#video-explicativo",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "Video explicativo",
+    "text": "Video explicativo"
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html#librarías-de-trabajo",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html#librarías-de-trabajo",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "Librarías de Trabajo",
+    "text": "Librarías de Trabajo\nEl siguiente código sirve para instalar las librerías a usar:\n\ninstall.packages(\"OddsPlotty\")\ninstall.packages(\"tidyverse\")\ninstall.packages(\"mlbench\")\n\nAhora, activa las librerías:\n\nlibrary(tidyverse)\nlibrary(OddsPlotty)\nlibrary(mlbench) # para cargar la base de datos"
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html#transformación-inicial-de-la-base-de-datos",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html#transformación-inicial-de-la-base-de-datos",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "Transformación inicial de la base de datos",
+    "text": "Transformación inicial de la base de datos\nEste paso no es necesario siempre. El objetivo es eliminar filas sin datos (incompletas), eliminar columnas que no vayan a ser usadas en el modelo GLM, y, para efectos de este ejercicio simple, convertir en numéricas las columnas factor.\n\n# Cargamos la base de datos BreastCancer\ndata(\"BreastCancer\")\n\n# Vista previa\nhead(BreastCancer)\n\n       Id Cl.thickness Cell.size Cell.shape Marg.adhesion Epith.c.size\n1 1000025            5         1          1             1            2\n2 1002945            5         4          4             5            7\n3 1015425            3         1          1             1            2\n4 1016277            6         8          8             1            3\n5 1017023            4         1          1             3            2\n6 1017122            8        10         10             8            7\n  Bare.nuclei Bl.cromatin Normal.nucleoli Mitoses     Class\n1           1           3               1       1    benign\n2          10           3               2       1    benign\n3           2           3               1       1    benign\n4           4           3               7       1    benign\n5           1           3               1       1    benign\n6          10           9               7       1 malignant\n\n# Transformación\nBreastCancer <- BreastCancer %>% \n  select(-1) %>%  # eliminar columnas que se vayan a usar\n  mutate_if(is.factor, as.numeric) %>% # convertir columnas factores a numéricas\n  mutate(Class = factor(Class)) %>% #convertir a factor la variable respuesta\n  filter(complete.cases(.)) # eliminar filas incompletas"
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html#modelo-lineal",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html#modelo-lineal",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "Modelo lineal",
+    "text": "Modelo lineal\n\n# Crear el modelo generalizado lineal (GLM): regresión logística\nmod1 <- glm(Class ~ ., data = BreastCancer, family = binomial(link = \"logit\"))\n\n# Resumen estadístico del modelo\nsummary(mod1)\n\n\nCall:\nglm(formula = Class ~ ., family = binomial(link = \"logit\"), data = BreastCancer)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-3.4855  -0.1152  -0.0619   0.0222   2.4702  \n\nCoefficients:\n                  Estimate Std. Error z value Pr(>|z|)    \n(Intercept)     -10.110096   1.173774  -8.613  < 2e-16 ***\nCl.thickness      0.535256   0.141938   3.771 0.000163 ***\nCell.size        -0.005943   0.209158  -0.028 0.977332    \nCell.shape        0.322136   0.230644   1.397 0.162510    \nMarg.adhesion     0.330694   0.123462   2.679 0.007395 ** \nEpith.c.size      0.096797   0.156568   0.618 0.536415    \nBare.nuclei       0.383015   0.093865   4.080 4.49e-05 ***\nBl.cromatin       0.447401   0.171392   2.610 0.009044 ** \nNormal.nucleoli   0.213074   0.112894   1.887 0.059109 .  \nMitoses           0.538551   0.325615   1.654 0.098138 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 884.35  on 682  degrees of freedom\nResidual deviance: 102.90  on 673  degrees of freedom\nAIC: 122.9\n\nNumber of Fisher Scoring iterations: 8"
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html#gráfico-con-oddsplotty",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html#gráfico-con-oddsplotty",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "Gráfico con OddsPlotty",
+    "text": "Gráfico con OddsPlotty\n\n# Gráfico inicial\nOR <- odds_plot(mod1, \n                title = \"Odds Ratios\",\n                subtitle = \"Factores Asociados al Cáncer de Pulmón\",\n                point_col = \"#5f00db\", \n                error_bar_colour = \"#5f00db\",\n                point_size = 1, \n                error_bar_width = 0.2,\n                h_line_color = \"#5f00db\")\n\nWaiting for profiling to be done...\n\nOR$odds_plot\n\n\n\n\n\n\n\n# Adicionar un tema, eliminar leyenda y etiqueta del eje Y\nORplot <- OR$odds_plot+\n  theme_test()+\n  theme(legend.position = \"none\")+\n  labs(x=\"\")\nORplot\n\n\n\n\n\n\n\n# Adicionar valores de Odds Ratio \nORplot +\n  geom_text(label = round(OR$odds_data$OR, digits = 2), size=3, \n            hjust = 1.5, vjust = -0.35, color=\"#5f00db\")+\n  # scale_x_discrete() te ayudará a modificar las etiquetas del eje Y.\n  # Por ejemplo, modificar Mitoses por Mitosis, o Cl.thickness por \n  # Grosor de Cl:\n  scale_x_discrete(expand=c(0.15,0.15),\n                   label = c(\"Mitoses\"=\"Mitosis\",\n                             \"Cl.thickness\"=\"Grosor de Cl\"))"
+  },
+  {
+    "objectID": "posts/oddsplotly-odds-ratio-plots/index.html#inspeccionar-la-información-de-odds-ratios",
+    "href": "posts/oddsplotly-odds-ratio-plots/index.html#inspeccionar-la-información-de-odds-ratios",
+    "title": "Gráficos de Odds Ratio con OddsPlotty",
+    "section": "Inspeccionar la información de Odds Ratios",
+    "text": "Inspeccionar la información de Odds Ratios\n\nOR$odds_data %>% as.data.frame()\n\n         OR     lower    upper            vars\n1 1.7078851 1.3160488 2.311339    Cl.thickness\n2 0.9940746 0.6738898 1.550114       Cell.size\n3 1.3800729 0.8617778 2.155328      Cell.shape\n4 1.3919332 1.0975034 1.798580   Marg.adhesion\n5 1.1016369 0.8052066 1.499293    Epith.c.size\n6 1.4666999 1.2298023 1.783756     Bare.nuclei\n7 1.5642407 1.1313483 2.225679     Bl.cromatin\n8 1.2374760 0.9981626 1.561486 Normal.nucleoli\n9 1.7135219 0.9926455 3.025957         Mitoses"
   },
   {
     "objectID": "posts/retos ggplot2/index.html#reto-gráfico-de-barras-laterales",

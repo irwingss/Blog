@@ -1,6 +1,6 @@
 ---
 title: "Sobre mi"
-image: profile.jpg
+image: img/avatar.png
 about:
   template: jolla
   links:
@@ -15,4 +15,4 @@ about:
       href: https://github.com
 ---
 
-About this blog
+Hola, mi nombre es Irwing S. Saldaña.
