@@ -1,0 +1,29 @@
+project:
+  type: website
+
+website:
+  title: "R Latinoamérica Blog"
+  # sidebar:
+  #   style: "docked"
+  #   search: true
+  navbar:
+    # logo: "img/logo.png"
+    background: "#4b00ff"
+    search: true
+    pinned: true
+    collapse: true
+    right:
+      - text: "Inicio"
+        file: index.qmd
+      - about.qmd
+      - icon: github
+        href: https://github.com/irwingss/
+      - icon: browser-edge
+        href: https://masterx.org
+format:
+  html:
+    theme: yeti
+    css: styles.css
+
+editor: visual
+
