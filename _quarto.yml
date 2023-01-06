@@ -20,11 +20,11 @@ website:
       - icon: github
         href: https://github.com/irwingss/
       - icon: person-plus-fill
-        href: https://masterx.org
+        href: https://www.masterx.org/
 format:
   html:
     theme: yeti
     css: styles.css
 
-editor: visual
+editor: source
 

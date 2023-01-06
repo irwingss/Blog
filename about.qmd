@@ -4,15 +4,27 @@ image: img/avatar.png
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
+    - icon: facebook
+      text: Facebook
+      href: https://www.facebook.com/isaldana
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/isaldanau/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/irwingss/
+    - icon: layout-text-sidebar
+      text: ResearchGate
+      href: https://www.researchgate.net/profile/Irwing-Saldana
+    - icon: bar-chart-fill
+      text: Laboratorio
+      href: https://www.ilcid.org/ecoevolab
+    - icon: youtube
+      text: Youtube R Latinoamérica
+      href: https://www.youtube.com/@rlatinoamerica
+    - icon: instagram
+      text: IG Personal
+      href: https://www.instagram.com/isaldanau
 ---
 
 Hola, mi nombre es Irwing S. Saldaña.
